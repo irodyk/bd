@@ -98,7 +98,7 @@ function positionParticles() {
 drawText();
 positionParticles();
 
-
+var count = 0
 // Update
 function update() {
 	clear();
@@ -127,8 +127,10 @@ function update() {
 					p.vy *= -bounceFactor;
 					
 					// Friction applied when on the floor
-					if(p.vx > 0)
+					if(p.vx > 0){
 						p.vx -= 0.1;
+						count++
+					}
 					else 
 						p.vx += 0.1;
 				}
@@ -142,7 +144,7 @@ function update() {
 					p.x = 0;
 					p.vx *= -0.5;
 				}
-			}
+			} 
 		}
 		
 		ctx.globalCompositeOperation = "lighter";
@@ -152,6 +154,11 @@ function update() {
 
 
 (function animloop(){
+	if(count >= particles.length*1.1){
+		keyword = "hello"
+		drawText()
+		return
+	}
 	requestAnimFrame(animloop);
 	update();
 })();
