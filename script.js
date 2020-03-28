@@ -11,10 +11,10 @@ window.requestAnimFrame = (function(){
 
 var canvas = document.getElementById("canvas"),
 		ctx = canvas.getContext("2d"),
-    keyword = "HAPPY BIRTHDAY, LUBIMAIA!",
+    keyword = "HAPPY BIRTHDAY, Prelest'!",
 		imageData,
 		density =2,
-		mouse = {},
+		touch = {},
 		hovered = false,
 		colors = ["236, 252, 17", "15, 245, 46", "15, 237,  245", "245, 15, 15", "245, 15, 214"],
 		minDist = 30,
@@ -27,8 +27,8 @@ canvas.width = W;
 canvas.height = H;
 
 document.addEventListener("touchmove", function(e) {
-	mouse.x = e.pageX;
-	mouse.y = e.pageY;
+	touch.x = e.pageX;
+	touch.y = e.pageY;
 }, false);
 
 // Particle Object
@@ -106,12 +106,12 @@ function update() {
 	for(i = 0; i < particles.length; i++) {
 		var p = particles[i];
 		
-		if(mouse.x > p.x && mouse.x < p.x + p.w && mouse.y > p.y && mouse.y < p.y + p.h) 
+		if(touch.x > p.x && touch.x < p.x + p.w && touch.y > p.y && touch.y < p.y + p.h) 
 			hovered = true;
 		
 		if(hovered == true) {
 			
-			var dist = Math.sqrt((p.x - mouse.x)*(p.x - mouse.x) + (p.y - mouse.y)*(p.y - mouse.y));
+			var dist = Math.sqrt((p.x - touch.x)*(p.x - touch.x) + (p.y - touch.y)*(p.y - touch.y));
 			
 			if(dist <= minDist)
 				p.free = true;
