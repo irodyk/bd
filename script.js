@@ -11,10 +11,10 @@ window.requestAnimFrame = (function(){
 
 var canvas = document.getElementById("canvas"),
 		ctx = canvas.getContext("2d"),
-    keyword = "HAPPY BIRTHDAY, Prelest'!",
+    keyword = "HAPPY BIRTHDAY, ПРЕЛЕСТЬ!",
 		imageData,
 		density =2,
-		touch = {},
+		mouse = {},
 		hovered = false,
 		colors = ["236, 252, 17", "15, 245, 46", "15, 237,  245", "245, 15, 15", "245, 15, 214"],
 		minDist = 30,
@@ -26,9 +26,9 @@ var W = window.innerWidth,
 canvas.width = W;
 canvas.height = H;
 
-document.addEventListener("touchmove", function(e) {
-	touch.x = e.pageX;
-	touch.y = e.pageY;
+document.addEventListener("mousemove", function(e) {
+	mouse.x = e.pageX;
+	mouse.y = e.pageY;
 }, false);
 
 // Particle Object
@@ -63,7 +63,7 @@ var particles = [];
 function drawText() {
 	ctx.clearRect(0, 0, W, H);
 	ctx.fillStyle = "#8800ff";
-	ctx.font = "100px 'Arial', sans-serif";
+	ctx.font = "6vw 'Arial', sans-serif";
 	ctx.textAlign = "center";
 	ctx.fillText(keyword, W/2, H/2);
 }
@@ -106,12 +106,12 @@ function update() {
 	for(i = 0; i < particles.length; i++) {
 		var p = particles[i];
 		
-		if(touch.x > p.x && touch.x < p.x + p.w && touch.y > p.y && touch.y < p.y + p.h) 
+		if(mouse.x > p.x && mouse.x < p.x + p.w && mouse.y > p.y && mouse.y < p.y + p.h) 
 			hovered = true;
 		
 		if(hovered == true) {
 			
-			var dist = Math.sqrt((p.x - touch.x)*(p.x - touch.x) + (p.y - touch.y)*(p.y - touch.y));
+			var dist = Math.sqrt((p.x - mouse.x)*(p.x - mouse.x) + (p.y - mouse.y)*(p.y - mouse.y));
 			
 			if(dist <= minDist)
 				p.free = true;
