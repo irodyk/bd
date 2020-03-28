@@ -11,7 +11,7 @@ window.requestAnimFrame = (function(){
 
 var canvas = document.getElementById("canvas"),
 		ctx = canvas.getContext("2d"),
-    keyword = "HAPPY BIRTHDAY, \nMOIA LUBIMAIA!",
+    keyword = "HAPPY BIRTHDAY, LUBIMAIA!",
 		imageData,
 		density =2,
 		mouse = {},
@@ -26,7 +26,7 @@ var W = window.innerWidth,
 canvas.width = W;
 canvas.height = H;
 
-document.addEventListener("mousemove", function(e) {
+document.addEventListener("touchmove", function(e) {
 	mouse.x = e.pageX;
 	mouse.y = e.pageY;
 }, false);
