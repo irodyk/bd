@@ -154,8 +154,8 @@ function update() {
 
 
 (function animloop(){
-	if(count >= particles.length*1.1){
-		keyword = "hello"
+	if(count >= particles.length*1.15){
+		keyword = "С Днём рождения, любимая!"
 		drawText()
 		return
 	}
