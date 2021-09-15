@@ -11,7 +11,7 @@ window.requestAnimFrame = (function(){
 
 var canvas = document.getElementById("canvas"),
 		ctx = canvas.getContext("2d"),
-    keyword = "HAPPY BIRTHDAY, WIFEY!",
+    keyword = "Wszystkiego najlepszego, Kamil!",
 		imageData,
 		density =2,
 		mouse = {},
@@ -155,7 +155,7 @@ function update() {
 
 (function animloop(){
 	if(count >= particles.length*1.15){
-		keyword = "С Днём рождения, любимая!"
+		keyword = "Wszystkiego najlepszego, Kamil!"
 		drawText()
 		return
 	}
